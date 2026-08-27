@@ -1,6 +1,16 @@
 # ASUG TechConnect 2026
 ASUG TechConnect
 
+# Ideas / Draft
+
+## Handson:
+
+- Exercise1: Given Agentic task, use AC to explore architectures, ai golden path, cookbooks to deploy something for fullfilling your task
+
+- Exercise2: Do a sample contribution to AC (community of practice)
+
+- Exercise3: Work through NSA -> [NSA leaning journey](https://learning.sap.com/courses/implementing-ai-native-enterprise-to-achieve-business-outcomes)
+
 # [TBD]
 <!-- Please include descriptive title -->
 
