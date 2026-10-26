@@ -34,7 +34,7 @@ You need a PAT from Dremio to authenticate the connection in the next step. Do t
 
 ---
 
-**1c.** In the Generate token dialog, enter a **Label** (e.g. `techedhands-on`) and leave the **Lifetime** at `30` days. Click **Generate**.
+**1c.** In the Generate token dialog, enter a **Label** (e.g. `asug-hands-on`) and leave the **Lifetime** at `30` days. Click **Generate**.
 
 ![Generate token dialog with label and lifetime filled in](images/02_01_0002.jpg)
 

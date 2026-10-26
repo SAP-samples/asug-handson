@@ -1,10 +1,10 @@
-# XP267 - Enrich your agents with context
+# Architecture Center - Enrich your agents with context
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2026-XP267)](https://api.reuse.software/info/github.com/SAP-samples/teched2026-XP267)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/asug-tech-connect-architecture-center)](https://api.reuse.software/info/github.com/SAP-samples/asug-tech-connect-architecture-center)
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2026 session XP267 - Enrich your agents with context.
+This repository contains the material for the ASUG Tech Connect 2026 session Architecture Center - Enrich your agents with context.
 
 In this hands-on session you build an end-to-end modern SAP data stack scenario: you take governed SAP S/4HANA data products from SAP Business Data Cloud (BDC) — sales orders, purchase orders, and customer master, plus a manufacturing track — refine them into golden records using layered SQL views in Dremio, build an ontology layer including non-SAP data, and finally ground a Joule agent on the result.
 
@@ -55,4 +55,4 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (20xx-)20xx SAP SE or an SAP affiliate company and XP267 contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP-samples/teched2026-XP267).
+Copyright (20xx-)20xx SAP SE or an SAP affiliate company and Architecture Center contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP-samples/asug-tech-connect-architecture-center).
