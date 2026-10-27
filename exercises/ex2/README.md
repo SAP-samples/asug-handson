@@ -154,7 +154,7 @@ Click **Next**.
 
 ### Step 12 — Select Tables : SAP data-product tables
 
-In the **Schema Source** panel, type `teched` to filter the schemas. Select **`teched_labs_sandbox.sap_dp`** — the schema containing the governed SAP data products.
+In the **Schema Source** panel, type `asug` to filter the schemas. Select **`asug_labs_sandbox.sap_dp`** — the schema containing the governed SAP data products.
 
 In the **Select table** panel, check:
 - `customer`
@@ -162,13 +162,13 @@ In the **Select table** panel, check:
 
 Both appear in the **Selected tables** panel on the right (count shows 2).
 
-![Select Tables step — teched schemas listed, sap_dp selected, customer and salesorderitem checked](images/02_02_0040.jpg)
+![Select Tables step — asug schemas listed, sap_dp selected, customer and salesorderitem checked](images/02_02_0040.jpg)
 
 ---
 
 ### Step 13 — Select Tables : non-SAP CRM tables
 
-Now select **`teched_labs_sandbox.non_sap`** in the Schema Source panel.
+Now select **`asug_labs_sandbox.non_sap`** in the Schema Source panel.
 
 Check the four CRM tables:
 - `crm_account`
@@ -210,12 +210,12 @@ Review the generated names. The mapping should look like this:
 
 | Table | Concept name |
 |---|---|
-| `teched_labs_sandbox.sap_dp.customer` | `Customers` |
-| `teched_labs_sandbox.sap_dp.salesorderitem` | `Salesorderitems` |
-| `teched_labs_sandbox.non_sap.crm_account` | `CrmAccount` |
-| `teched_labs_sandbox.non_sap.crm_case` | `CrmCase` |
-| `teched_labs_sandbox.non_sap.crm_contact` | `CrmContact` |
-| `teched_labs_sandbox.non_sap.crm_opportunity` | `CrmOpportunity` |
+| `asug_labs_sandbox.sap_dp.customer` | `Customers` |
+| `asug_labs_sandbox.sap_dp.salesorderitem` | `Salesorderitems` |
+| `asug_labs_sandbox.non_sap.crm_account` | `CrmAccount` |
+| `asug_labs_sandbox.non_sap.crm_case` | `CrmCase` |
+| `asug_labs_sandbox.non_sap.crm_contact` | `CrmContact` |
+| `asug_labs_sandbox.non_sap.crm_opportunity` | `CrmOpportunity` |
 | `...v_crm_account_resolved` | `VCrmAccountResolved` |
 | `...v_customer_otif` | `VCustomerOtif` |
 

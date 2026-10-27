@@ -10,8 +10,8 @@ Refine governed SAP data into trusted golden records using layered SQL views in 
 
 For this exercise you work with two datasets, SAP and non-SAP:
 
-- **SAP** data products under `"teched_labs_sandbox"."sap_dp"` — `customer`, `salesorderitem`, governed SAP S/4HANA data products from SAP Business Data Cloud (BDC): meaningful field names, business semantics, a defined contract.
-- **Non-SAP** CRM data under `"teched_labs_sandbox"."non_sap"`.
+- **SAP** data products under `"asug_labs_sandbox"."sap_dp"` — `customer`, `salesorderitem`, governed SAP S/4HANA data products from SAP Business Data Cloud (BDC): meaningful field names, business semantics, a defined contract.
+- **Non-SAP** CRM data under `"asug_labs_sandbox"."non_sap"`.
 
 > **Where your objects land:** everyone shares one Dremio instance, so every view you create lands in **your own space** — written as `"<your_space>"` throughout (e.g. `user-##`, your assigned station number). Source tables stay in the shared `sap_dp` / `non_sap` schemas — you only *read* those. Before you start, replace `<your_space>` in each block with your space name.
 
@@ -40,7 +40,7 @@ Preview the CRM accounts — messy names, a `churn_risk`, a `renewal_date`, no S
 
 ```sql
 SELECT crm_account_id, account_name, segment, churn_risk, nps, renewal_date
-FROM "teched_labs_sandbox"."non_sap".crm_account
+FROM "asug_labs_sandbox"."non_sap".crm_account
 LIMIT 20;
 ```
 
@@ -52,7 +52,7 @@ Then preview the cases — dominated by delivery complaints:
 
 ```sql
 SELECT category, status, COUNT(*) n
-FROM "teched_labs_sandbox"."non_sap".crm_case
+FROM "asug_labs_sandbox"."non_sap".crm_case
 GROUP BY category, status ORDER BY n DESC;
 ```
 
@@ -79,7 +79,7 @@ SELECT
                        WHEN CommittedDeliveryDate <= RequestedDeliveryDate AND TotalDeliveryStatus='C' THEN 1.0 ELSE 0.0 END),1) AS otif_pct,
   SUM(CASE WHEN CommittedDeliveryDate IS NOT NULL AND CommittedDeliveryDate<>'' AND CommittedDeliveryDate > RequestedDeliveryDate THEN 1 ELSE 0 END) AS late,
   SUM(CASE WHEN TotalDeliveryStatus IN ('A','B') THEN 1 ELSE 0 END) AS short
-FROM "teched_labs_sandbox"."sap_dp".salesorderitem
+FROM "asug_labs_sandbox"."sap_dp".salesorderitem
 WHERE RequestedDeliveryDate >= '2023-01-01'
 GROUP BY SoldToParty;
 ```
@@ -92,7 +92,7 @@ Now **materialize it.** Dremio has no `CREATE MATERIALIZED VIEW` — you keep th
 
 ```sql
 ALTER DATASET "<your_space>".v_customer_otif
-CREATE RAW REFLECTION otif_raw USING DISPLAY (
+CREATE RAW REFLECTION "<your_space>_otif_raw" USING DISPLAY (
   "Customer", lines, committed_lines, pct_on_time, pct_in_full, otif_pct, late, short
 );
 ```
@@ -115,13 +115,13 @@ WITH cust_norm AS (
       ' (INC|LLC|CO|CORP|GMBH|AG|KG|LTD|GROUP|SA DE CV|S DE RL)$',''),' ','') AS cn,
     MIN(Customer) AS one_customer,
     COUNT(DISTINCT Customer) AS ncust
-  FROM "teched_labs_sandbox"."sap_dp".customer
+  FROM "asug_labs_sandbox"."sap_dp".customer
   GROUP BY REGEXP_REPLACE(REGEXP_REPLACE(TRIM(REGEXP_REPLACE(UPPER(CustomerName),'[^A-Z0-9]+',' ')),
       ' (INC|LLC|CO|CORP|GMBH|AG|KG|LTD|GROUP|SA DE CV|S DE RL)$',''),' ','')
 ),
 fuzzy AS (
   SELECT a.crm_account_id, cn2.one_customer AS fuzzy_sap_id, cn2.ncust
-  FROM "teched_labs_sandbox"."non_sap".crm_account a
+  FROM "asug_labs_sandbox"."non_sap".crm_account a
   LEFT JOIN cust_norm cn2
     ON REGEXP_REPLACE(REGEXP_REPLACE(TRIM(REGEXP_REPLACE(UPPER(a.account_name),'[^A-Z0-9]+',' ')),
          ' (INC|LLC|CO|CORP|GMBH|AG|KG|LTD|GROUP|SA DE CV|S DE RL)$',''),' ','') = cn2.cn
@@ -136,7 +136,7 @@ SELECT
     WHEN f.ncust > 1 THEN 'ambiguous_needs_mdm'
     ELSE 'mdm_resolved'
   END AS match_method
-FROM "teched_labs_sandbox"."non_sap".crm_account_resolution_xref x
+FROM "asug_labs_sandbox"."non_sap".crm_account_resolution_xref x
 LEFT JOIN fuzzy f ON f.crm_account_id = x.crm_account_id;
 ```
 
@@ -148,7 +148,7 @@ Now **materialize it** — enable a Raw Reflection on `v_crm_account_resolved` (
 
 ```sql
 ALTER DATASET "<your_space>".v_crm_account_resolved
-CREATE RAW REFLECTION resolved_raw USING DISPLAY (
+CREATE RAW REFLECTION "<your_space>_resolved_raw" USING DISPLAY (
   crm_account_id, sap_customer_id, name_match_difficulty, fuzzy_sap_id, match_method
 );
 ```
@@ -182,7 +182,7 @@ WITH cases AS (
          SUM(CASE WHEN status='Open' THEN 1 ELSE 0 END) AS open_cases,
          SUM(CASE WHEN category='Delivery Delay' THEN 1 ELSE 0 END) AS delivery_delay_cases,
          SUM(CASE WHEN category='Short Shipment' THEN 1 ELSE 0 END) AS short_shipment_cases
-  FROM "teched_labs_sandbox"."non_sap".crm_case GROUP BY crm_account_id
+  FROM "asug_labs_sandbox"."non_sap".crm_case GROUP BY crm_account_id
 )
 SELECT
   a.crm_account_id, a.account_name, a.segment, a.billing_country, a.billing_region,
@@ -197,9 +197,9 @@ SELECT
   COALESCE(ca.open_cases,0) AS open_cases,
   COALESCE(ca.delivery_delay_cases,0) AS delivery_delay_cases,
   COALESCE(ca.short_shipment_cases,0) AS short_shipment_cases
-FROM "teched_labs_sandbox"."non_sap".crm_account a
+FROM "asug_labs_sandbox"."non_sap".crm_account a
 JOIN "<your_space>".v_crm_account_resolved r ON r.crm_account_id = a.crm_account_id
-LEFT JOIN "teched_labs_sandbox"."sap_dp".customer cu ON cu.Customer = r.sap_customer_id
+LEFT JOIN "asug_labs_sandbox"."sap_dp".customer cu ON cu.Customer = r.sap_customer_id
 LEFT JOIN "<your_space>".v_customer_otif o ON o."Customer" = r.sap_customer_id
 LEFT JOIN cases ca ON ca.crm_account_id = a.crm_account_id
 WHERE a.churn_risk <> 'Unmanaged';
@@ -217,7 +217,7 @@ Enable a Raw Reflection on the golden record, the same way you did for the two S
 
 ```sql
 ALTER DATASET "<your_space>".v_crm_account_360
-CREATE RAW REFLECTION crm360_raw USING DISPLAY (
+CREATE RAW REFLECTION "<your_space>_crm360_raw" USING DISPLAY (
   crm_account_id, account_name, segment, churn_risk, annual_contract_value, renewal_date,
   sap_customer_id, match_method, CustomerName, Country, Industry,
   otif_pct, pct_on_time, pct_in_full, late_lines, open_cases, delivery_delay_cases

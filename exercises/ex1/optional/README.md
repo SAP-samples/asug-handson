@@ -16,8 +16,8 @@ Each production order (`productionorder`) has one or more operations (`productio
 SELECT po.ProductionOrder, po.OrderScheduledEndDate, po.OrderActualEndDate,
        op.ProductionOrderOperation, op.WorkCenterInternalID,
        op.OpPlannedTotalQuantity, op.OpTotalConfirmedScrapQty
-FROM "teched_labs_sandbox"."sap_dp".productionorder          AS po
-JOIN "teched_labs_sandbox"."sap_dp".productionorderoperation AS op
+FROM "asug_labs_sandbox"."sap_dp".productionorder          AS po
+JOIN "asug_labs_sandbox"."sap_dp".productionorderoperation AS op
   ON po.ProductionOrder = op.ProductionOrder
 LIMIT 20;
 ```
@@ -34,7 +34,7 @@ The work-center master names each machine (`WorkCenter`) by its `WorkCenterInter
 
 ```sql
 SELECT WorkCenterInternalID, WorkCenter
-FROM "teched_labs_sandbox"."sap_dp".workcenter
+FROM "asug_labs_sandbox"."sap_dp".workcenter
 LIMIT 20;
 ```
 
@@ -109,10 +109,10 @@ SELECT
                  THEN CAST(op.OpTotalConfirmedScrapQty AS DOUBLE) / CAST(op.OpPlannedTotalQuantity AS DOUBLE) * 100
                  ELSE 0 END)
         AS INT))                                                  AS operation_anomaly_score
-FROM "teched_labs_sandbox"."sap_dp".productionorder                 AS po
-JOIN "teched_labs_sandbox"."sap_dp".productionorderoperation        AS op
+FROM "asug_labs_sandbox"."sap_dp".productionorder                 AS po
+JOIN "asug_labs_sandbox"."sap_dp".productionorderoperation        AS op
     ON po.ProductionOrder = op.ProductionOrder
-LEFT JOIN "teched_labs_sandbox"."sap_dp".workcenter                 AS wc
+LEFT JOIN "asug_labs_sandbox"."sap_dp".workcenter                 AS wc
     ON op.WorkCenterInternalID = wc.WorkCenterInternalID;
 ```
 
@@ -227,7 +227,7 @@ Enable a Raw Reflection on `otif_risk` (same mechanic as the main flow) so the a
 
 ```sql
 ALTER DATASET "<your_space>".otif_risk
-CREATE RAW REFLECTION otif_risk_raw USING DISPLAY (
+CREATE RAW REFLECTION "<your_space>_otif_risk_raw" USING DISPLAY (
   ProductionOrder, plant, delivery_status, schedule_delay_days, total_operations,
   max_anomaly_score, avg_scrap_pct, max_scrap_pct, max_work_ratio, total_scrap_qty,
   anomalous_work_centers, primary_root_cause, otif_risk_score, is_at_risk, risk_tier
