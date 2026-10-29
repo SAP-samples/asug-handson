@@ -4,7 +4,7 @@ A deterministic shopfloor **production-risk** golden record (silver → gold), r
 
 This is optional secondary context the Exercise 3 agent can use for manufacturing questions. It is **not part of the main flow**. All six steps are validated against live Dremio; the string-aggregation choice that keeps it portable across builds is noted at the end.
 
-**Prerequisite:** [Exercise 1](../README.md) completed. Views build into your own space, `"<your_space>"` (e.g. `user-##`) — the same space you used in Exercise 1. Replace `<your_space>` in each block with your space name.
+**Prerequisite:** [Exercise 1](../README.md) completed. Views build into your own space, `"<your_space>"` (e.g. `XP267-###`) — the same space you used in Exercise 1. Replace `<your_space>` in each block with your space name.
 
 ## Steps
 
@@ -227,7 +227,7 @@ Enable a Raw Reflection on `otif_risk` (same mechanic as the main flow) so the a
 
 ```sql
 ALTER DATASET "<your_space>".otif_risk
-CREATE RAW REFLECTION "<your_space>_otif_risk_raw" USING DISPLAY (
+CREATE RAW REFLECTION "<your_space>"_otif_risk_raw USING DISPLAY (
   ProductionOrder, plant, delivery_status, schedule_delay_days, total_operations,
   max_anomaly_score, avg_scrap_pct, max_scrap_pct, max_work_ratio, total_scrap_qty,
   anomalous_work_centers, primary_root_cause, otif_risk_score, is_at_risk, risk_tier
