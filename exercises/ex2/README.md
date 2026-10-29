@@ -1,5 +1,9 @@
 # Exercise 2 - Creating Ontology to define business concepts and relations
 
+**SAP BDC Ontology Manager:** [https://nar-eu10-i05-sub-j4a26ouu-nar-eu10-i05-approuter.cfapps.eu10-005.hana.ondemand.com/index.html](https://nar-eu10-i05-sub-j4a26ouu-nar-eu10-i05-approuter.cfapps.eu10-005.hana.ondemand.com/index.html)
+
+Log in with your assigned user ID. If your number is 1, your user ID is `XP267-001`; if it is 12, use `XP267-012`.
+
 In this exercise, you will build a semantic ontology on top of the materialized views produced in Exercise 1, bringing together non-SAP CRM data and SAP data, adding relationships and semantics that the Joule agent in Exercise 3 can reason over.
 
 This connects the two halves of the session: Exercise 1 produces the trusted, materialized golden record; Exercise 3 grounds an agent on it. The ontology built here is the bridge between them — the shared vocabulary (customers, CRM accounts, churn risk, OTIF delivery performance) that makes the agent's answers precise and explainable.

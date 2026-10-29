@@ -1,5 +1,9 @@
 # Exercise 3 - Build a Joule Skill on the Golden Record
 
+**Joule Work:** [https://747391938.eu10.sapdas.cloud.sap/new/conversations](https://747391938.eu10.sapdas.cloud.sap/new/conversations)
+
+Log in with your assigned user ID. If your number is 1, your user ID is `XP267-001`; if it is 12, use `XP267-012`.
+
 In this exercise you ground **Joule** on the knowledge graph you built in the SAP BDC
 Ontology Manager, which sits on top of the golden records from the earlier exercises. You import a
 prepared **Joule skill** into Joule Work, turn it on, and ask customer-churn and delivery-performance

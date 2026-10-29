@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository contains the material for the ASUG Tech Connect 2026 session Architecture Center - Enrich your agents with context.
+This repository contains the material for the ASUG Tech Connect 2026 session Architecture Center, North Star and AI Golden Path.
 
 In this hands-on session you build an end-to-end modern SAP data stack scenario: you take governed SAP S/4HANA data products from SAP Business Data Cloud (BDC) — sales orders, purchase orders, and customer master, plus a manufacturing track — refine them into golden records using layered SQL views in Dremio, build an ontology layer including non-SAP data, and finally ground a Joule agent on the result.
 

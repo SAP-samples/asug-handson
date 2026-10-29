@@ -2,6 +2,10 @@
 
 Refine governed SAP data into trusted golden records using layered SQL views in Dremio, accelerated by reflections.
 
+**SAP Lakehouse (Dremio):** [https://app.qaemea1.dremio.site/project/7448000a-bf81-48b0-a68b-df7dd74fbba2](https://app.qaemea1.dremio.site/project/7448000a-bf81-48b0-a68b-df7dd74fbba2)
+
+Log in with your assigned user ID. If your number is 1, your user ID is `XP267-001`; if it is 12, use `XP267-012`.
+
 ## Goal
 
 **Resolve a non-SAP CRM to governed SAP customers and prove the churn ↔ delivery link** — the golden records Exercise 2 models into an ontology and Exercise 3's agent reasons over.
