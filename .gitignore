@@ -13,6 +13,9 @@ exercises/ex3/js-agent/solution/.build.*
 exercises/ex3/js-agent/solution/build/
 exercises/ex3/.agent-venv/
 
+# Claude Code local config
+.claude/
+
 # IDE
 .idea/
 
