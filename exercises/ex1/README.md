@@ -152,7 +152,7 @@ Now **materialize it** — enable a Raw Reflection on `v_crm_account_resolved` (
 
 ```sql
 ALTER DATASET "<YOUR_SPACE_ID>".v_crm_account_resolved
-CREATE RAW REFLECTION "<YOUR_SPACE_ID>"_resolved_raw USING DISPLAY (
+CREATE RAW REFLECTION <YOUR_SPACE_ID>_resolved_raw USING DISPLAY (
   crm_account_id, sap_customer_id, name_match_difficulty, fuzzy_sap_id, match_method
 );
 ```
@@ -221,7 +221,7 @@ Enable a Raw Reflection on the golden record, the same way you did for the two S
 
 ```sql
 ALTER DATASET "<YOUR_SPACE_ID>".v_crm_account_360
-CREATE RAW REFLECTION "<YOUR_SPACE_ID>"_crm360_raw USING DISPLAY (
+CREATE RAW REFLECTION <YOUR_SPACE_ID>_crm360_raw USING DISPLAY (
   crm_account_id, account_name, segment, churn_risk, annual_contract_value, renewal_date,
   sap_customer_id, match_method, CustomerName, Country, Industry,
   otif_pct, pct_on_time, pct_in_full, late_lines, open_cases, delivery_delay_cases
