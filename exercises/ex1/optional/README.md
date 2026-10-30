@@ -4,7 +4,7 @@ A deterministic shopfloor **production-risk** golden record (silver → gold), r
 
 This is optional secondary context the Exercise 3 agent can use for manufacturing questions. It is **not part of the main flow**. All six steps are validated against live Dremio; the string-aggregation choice that keeps it portable across builds is noted at the end.
 
-**Prerequisite:** [Exercise 1](../README.md) completed. Views build into your own space, `"<your_space>"` (e.g. `XP267-###`) — the same space you used in Exercise 1. Replace `<your_space>` in each block with your space name.
+**Prerequisite:** [Exercise 1](../README.md) completed. Views build into your own space, `"<your_space>"` (e.g. `XP267-201` if your id is 1) — the same space you used in Exercise 1. Replace `<your_space>` in each block with your space name.
 
 ## Steps
 

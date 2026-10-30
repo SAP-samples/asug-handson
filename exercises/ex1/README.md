@@ -4,7 +4,7 @@ Refine governed SAP data into trusted golden records using layered SQL views in 
 
 **SAP Lakehouse (Dremio):** [https://app.qaemea1.dremio.site/project/7448000a-bf81-48b0-a68b-df7dd74fbba2](https://app.qaemea1.dremio.site/project/7448000a-bf81-48b0-a68b-df7dd74fbba2)
 
-Log in with your assigned user ID. If your number is 1, your user ID is `XP267-001`; if it is 12, use `XP267-012`.
+Log in with your assigned user ID. IDs run from `XP267-201` to `XP267-270`. If your number is 1, your user ID is `XP267-201`; if it is 12, use `XP267-212`.
 
 ## Goal
 
@@ -17,7 +17,7 @@ For this exercise you work with two datasets, SAP and non-SAP:
 - **SAP** data products under `"asug_labs_sandbox"."sap_dp"` — `customer`, `salesorderitem`, governed SAP S/4HANA data products from SAP Business Data Cloud (BDC): meaningful field names, business semantics, a defined contract.
 - **Non-SAP** CRM data under `"asug_labs_sandbox"."non_sap"`.
 
-> **Where your objects land:** everyone shares one Dremio instance, so every view you create lands in **your own space** — written as `"<YOUR_SPACE_ID>"` throughout (e.g. XP267-001, XP267-002, etc). Source tables stay in the shared `sap_dp` / `non_sap` schemas — you only *read* those. Before you start, replace `"<YOUR_SPACE_ID>"` in each block with your space name.
+> **Where your objects land:** everyone shares one Dremio instance, so every view you create lands in **your own space** — written as `"<YOUR_SPACE_ID>"` throughout (e.g. XP267-201, XP267-202, etc). Source tables stay in the shared `sap_dp` / `non_sap` schemas — you only *read* those. Before you start, replace `"<YOUR_SPACE_ID>"` in each block with your space name.
 
 > **Run each block on screen.** Every SQL block below is complete and runnable once you substitute your space name — execute it and the result matches the screenshot beneath it.
 
