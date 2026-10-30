@@ -227,7 +227,7 @@ Enable a Raw Reflection on `otif_risk` (same mechanic as the main flow) so the a
 
 ```sql
 ALTER DATASET "<your_space>".otif_risk
-CREATE RAW REFLECTION "<your_space>"_otif_risk_raw USING DISPLAY (
+CREATE RAW REFLECTION <your_space>_otif_risk_raw USING DISPLAY (
   ProductionOrder, plant, delivery_status, schedule_delay_days, total_operations,
   max_anomaly_score, avg_scrap_pct, max_scrap_pct, max_work_ratio, total_scrap_qty,
   anomalous_work_centers, primary_root_cause, otif_risk_score, is_at_risk, risk_tier
