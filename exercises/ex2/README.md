@@ -2,7 +2,7 @@
 
 **SAP BDC Ontology Manager:** [https://nar-eu10-i05-sub-j4a26ouu-nar-eu10-i05-approuter.cfapps.eu10-005.hana.ondemand.com/index.html](https://nar-eu10-i05-sub-j4a26ouu-nar-eu10-i05-approuter.cfapps.eu10-005.hana.ondemand.com/index.html)
 
-Log in with your assigned user ID. If your number is 1, your user ID is `XP267-001`; if it is 12, use `XP267-012`.
+Log in with your assigned user ID. IDs run from `XP267-201` to `XP267-270`. If your number is 1, your user ID is `XP267-201`; if it is 12, use `XP267-212`.
 
 In this exercise, you will build a semantic ontology on top of the materialized views produced in Exercise 1, bringing together non-SAP CRM data and SAP data, adding relationships and semantics that the Joule agent in Exercise 3 can reason over.
 
