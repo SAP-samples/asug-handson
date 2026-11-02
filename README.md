@@ -1,6 +1,6 @@
 # Architecture Center - Enrich your agents with context
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/asug-tech-connect-architecture-center)](https://api.reuse.software/info/github.com/SAP-samples/asug-tech-connect-architecture-center)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/asug-handson)](https://api.reuse.software/info/github.com/SAP-samples/asug-handson)
 
 ## Description
 
@@ -55,4 +55,4 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (20xx-)20xx SAP SE or an SAP affiliate company and Architecture Center contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP-samples/asug-tech-connect-architecture-center).
+Copyright 2026 SAP SE or an SAP affiliate company and asug-handson contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP-samples/asug-handson).
