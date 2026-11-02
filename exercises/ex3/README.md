@@ -124,8 +124,7 @@ real SAP delivery performance (OTIF), the churn ↔ delivery link you proved in 
 
 ### Step 6 — Start an Agentic Thinking conversation
 
-Click **New** to open a conversation. **Before you type anything**, click the **`+`** at the
-bottom-left of the chat box and choose **Agentic Thinking** (*"Empowers Joule to take initiative
+Click **New** to open a conversation. Once it opens, rename it to your user ID (for example, `XP267-250` if you got card 50) — click the conversation title at the top and type your ID. This makes it easy to find your session later.. **Before you type anything**, click the **`+`** at the bottom-left of the chat box and choose **Agentic Thinking** (*"Empowers Joule to take initiative
 autonomously"*). Custom skills only run in an **Agentic Thinking** conversation — in a normal
 conversation Joule can't reach the skill and will reply that the assistant is *"not available in
 my current configuration,"* answering from general knowledge instead.
