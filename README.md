@@ -1,6 +1,6 @@
 # Architecture Center - Enrich your agents with context
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/asug-tech-connect-architecture-center)](https://api.reuse.software/info/github.com/SAP-samples/asug-tech-connect-architecture-center)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/asug-handson)](https://api.reuse.software/info/github.com/SAP-samples/asug-handson)
 
 ## Description
 
